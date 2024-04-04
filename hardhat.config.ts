@@ -38,6 +38,12 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},
+		"eth-sepolia": {
+			chainId: 11155111,
+			url: "https://ethereum-sepolia-rpc.publicnode.com",
+			live: false,
+			accounts: accounts,
+		},
 		hardhat: {
 			live: false,
 			deploy: ["deploy/hardhat/"],

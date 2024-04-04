@@ -1,5 +1,6 @@
 [
     "fantom-testnet",
     "nexis-testnet",
-    "bnb-testnet"
+    "bnb-testnet",
+    "eth-sepolia"
 ]
