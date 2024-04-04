@@ -6,7 +6,6 @@ typechain
 typechain-types
 .vscode
 deployments/localhost
-deployments/
 
 addresses-testnet.json
 chains-testnet.json

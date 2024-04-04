@@ -32,6 +32,12 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},
+		"bnb-testnet": {
+			chainId: 97,
+			url: "https://data-seed-prebsc-1-s1.binance.org:8545",
+			live: false,
+			accounts: accounts,
+		},
 		hardhat: {
 			live: false,
 			deploy: ["deploy/hardhat/"],

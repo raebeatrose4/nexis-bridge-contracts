@@ -1,0 +1,128 @@
+{
+  "address": "0xDc822b6948cA6a12bc120A1D3fc06EB33Abe20cd",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_tokenAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "unlimitedAllowance",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "unwrap",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "wrap",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "transactionHash": "0xb45015291c700a3db82385ec2d2025917a92d56b83314d0d9870f7b79b1606d5",
+  "receipt": {
+    "to": null,
+    "from": "0x0fF3EF7199fb0D3229F21b616F69E29F09D92ADa",
+    "contractAddress": "0xDc822b6948cA6a12bc120A1D3fc06EB33Abe20cd",
+    "transactionIndex": 1,
+    "gasUsed": "317502",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000800000800000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000020000000000000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000001",
+    "blockHash": "0xf1d81f99dca70da718f09479d0f74bb97750ce258045f32933b70be92fe884a5",
+    "transactionHash": "0xb45015291c700a3db82385ec2d2025917a92d56b83314d0d9870f7b79b1606d5",
+    "logs": [
+      {
+        "transactionIndex": 1,
+        "blockNumber": 1947586,
+        "transactionHash": "0xb45015291c700a3db82385ec2d2025917a92d56b83314d0d9870f7b79b1606d5",
+        "address": "0x478b2E52eab5be2d6511412Fb5E79bE26e901f14",
+        "topics": [
+          "0x8c5be1e5ebec7d5bd14f71427d1e84f3dd0314c0f7b2291e5b200ac8c7c3b925",
+          "0x000000000000000000000000dc822b6948ca6a12bc120a1d3fc06eb33abe20cd",
+          "0x000000000000000000000000dc822b6948ca6a12bc120a1d3fc06eb33abe20cd"
+        ],
+        "data": "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "logIndex": 0,
+        "blockHash": "0xf1d81f99dca70da718f09479d0f74bb97750ce258045f32933b70be92fe884a5"
+      }
+    ],
+    "blockNumber": 1947586,
+    "cumulativeGasUsed": "317502",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x478b2E52eab5be2d6511412Fb5E79bE26e901f14"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "c201cdf0ac273ae6449779d0ae64ef3e",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_tokenAddress\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unlimitedAllowance\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_amount\",\"type\":\"uint256\"}],\"name\":\"unwrap\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"wrap\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/NexisBridge.sol\":\"bNZT\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/NexisBridge.sol\":{\"content\":\"//SPDX-License-Identifier:Unlicensed\\npragma solidity ^0.8.17;\\n\\ninterface IERC20 {\\n    function transfer(address recipient, uint256 amount) external returns (bool);\\n    function balanceOf(address account) external view returns (uint256);\\n    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);\\n    function approve(address spender, uint256 amount) external returns (bool); \\n}\\n\\ncontract bNZT{\\n    IERC20 public token;\\n    constructor(address _tokenAddress){\\n        token = IERC20(_tokenAddress);\\n        token.approve(address(this),type(uint256).max);\\n    }\\n\\n    receive() external payable {}\\n\\n    function wrap() public payable{\\n        require(token.transferFrom(address(this),msg.sender, msg.value),\\\"not enough tokens\\\");\\n    }\\n\\n   function unwrap(uint256 _amount) public {\\n    // Transfer tokens from the sender to the contract\\n        require(token.transferFrom(msg.sender, address(this), _amount), \\\"Token transfer failed\\\");\\n\\n        // Get the contract's balance before the transfer\\n        uint256 contractBalanceBefore = address(this).balance;\\n        require(_amount<contractBalanceBefore,\\\"not enough liquidity\\\");\\n\\n        // Transfer equivalent ether amount from contract to the sender\\n        require(payable(msg.sender).send(_amount), \\\"Ether transfer failed\\\");\\n    }\\n\\n\\n    function unlimitedAllowance()public{\\n        token.approve(address(this),type(uint256).max);\\n    }\\n}\",\"keccak256\":\"0xaa6be5048220f45499e00fd352fa3851f2383875aafdde5be53a01da5eee64f1\",\"license\":\"Unlicensed\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161050238038061050283398101604081905261002f916100bb565b600080546001600160a01b0319166001600160a01b03831690811790915560405163095ea7b360e01b8152306004820152600019602482015263095ea7b3906044016020604051808303816000875af1158015610090573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906100b491906100eb565b505061010d565b6000602082840312156100cd57600080fd5b81516001600160a01b03811681146100e457600080fd5b9392505050565b6000602082840312156100fd57600080fd5b815180151581146100e457600080fd5b6103e68061011c6000396000f3fe6080604052600436106100435760003560e01c8063d46eb1191461004f578063d67ea66b14610059578063de0e9a3e1461006e578063fc0c546a1461008e57600080fd5b3661004a57005b600080fd5b6100576100ca565b005b34801561006557600080fd5b5061005761018b565b34801561007a57600080fd5b5061005761008936600461036e565b610204565b34801561009a57600080fd5b506000546100ae906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000546040516323b872dd60e01b81523060048201523360248201523460448201526001600160a01b03909116906323b872dd906064016020604051808303816000875af1158015610120573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101449190610387565b6101895760405162461bcd60e51b81526020600482015260116024820152706e6f7420656e6f75676820746f6b656e7360781b60448201526064015b60405180910390fd5b565b60005460405163095ea7b360e01b815230600482015260001960248201526001600160a01b039091169063095ea7b3906044016020604051808303816000875af11580156101dd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102019190610387565b50565b6000546040516323b872dd60e01b8152336004820152306024820152604481018390526001600160a01b03909116906323b872dd906064016020604051808303816000875af115801561025b573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061027f9190610387565b6102c35760405162461bcd60e51b8152602060048201526015602482015274151bdad95b881d1c985b9cd9995c8819985a5b1959605a1b6044820152606401610180565b4780821061030a5760405162461bcd60e51b81526020600482015260146024820152736e6f7420656e6f756768206c697175696469747960601b6044820152606401610180565b604051339083156108fc029084906000818181858888f1935050505061036a5760405162461bcd60e51b8152602060048201526015602482015274115d1a195c881d1c985b9cd9995c8819985a5b1959605a1b6044820152606401610180565b5050565b60006020828403121561038057600080fd5b5035919050565b60006020828403121561039957600080fd5b815180151581146103a957600080fd5b939250505056fea26469706673582212200db0d280c13f6071ebde0c276ebb6041d87d6bb6bdc96474b3103feffddf9d4e64736f6c63430008110033",
+  "deployedBytecode": "0x6080604052600436106100435760003560e01c8063d46eb1191461004f578063d67ea66b14610059578063de0e9a3e1461006e578063fc0c546a1461008e57600080fd5b3661004a57005b600080fd5b6100576100ca565b005b34801561006557600080fd5b5061005761018b565b34801561007a57600080fd5b5061005761008936600461036e565b610204565b34801561009a57600080fd5b506000546100ae906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000546040516323b872dd60e01b81523060048201523360248201523460448201526001600160a01b03909116906323b872dd906064016020604051808303816000875af1158015610120573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101449190610387565b6101895760405162461bcd60e51b81526020600482015260116024820152706e6f7420656e6f75676820746f6b656e7360781b60448201526064015b60405180910390fd5b565b60005460405163095ea7b360e01b815230600482015260001960248201526001600160a01b039091169063095ea7b3906044016020604051808303816000875af11580156101dd573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102019190610387565b50565b6000546040516323b872dd60e01b8152336004820152306024820152604481018390526001600160a01b03909116906323b872dd906064016020604051808303816000875af115801561025b573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061027f9190610387565b6102c35760405162461bcd60e51b8152602060048201526015602482015274151bdad95b881d1c985b9cd9995c8819985a5b1959605a1b6044820152606401610180565b4780821061030a5760405162461bcd60e51b81526020600482015260146024820152736e6f7420656e6f756768206c697175696469747960601b6044820152606401610180565b604051339083156108fc029084906000818181858888f1935050505061036a5760405162461bcd60e51b8152602060048201526015602482015274115d1a195c881d1c985b9cd9995c8819985a5b1959605a1b6044820152606401610180565b5050565b60006020828403121561038057600080fd5b5035919050565b60006020828403121561039957600080fd5b815180151581146103a957600080fd5b939250505056fea26469706673582212200db0d280c13f6071ebde0c276ebb6041d87d6bb6bdc96474b3103feffddf9d4e64736f6c63430008110033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 41,
+        "contract": "contracts/NexisBridge.sol:bNZT",
+        "label": "token",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_contract(IERC20)38"
+      }
+    ],
+    "types": {
+      "t_contract(IERC20)38": {
+        "encoding": "inplace",
+        "label": "contract IERC20",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}

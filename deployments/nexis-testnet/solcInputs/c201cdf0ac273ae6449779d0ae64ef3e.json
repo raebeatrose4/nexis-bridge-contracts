@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/NexisBridge.sol": {
+      "content": "//SPDX-License-Identifier:Unlicensed\npragma solidity ^0.8.17;\n\ninterface IERC20 {\n    function transfer(address recipient, uint256 amount) external returns (bool);\n    function balanceOf(address account) external view returns (uint256);\n    function transferFrom(address sender, address recipient, uint256 amount) external returns (bool);\n    function approve(address spender, uint256 amount) external returns (bool); \n}\n\ncontract bNZT{\n    IERC20 public token;\n    constructor(address _tokenAddress){\n        token = IERC20(_tokenAddress);\n        token.approve(address(this),type(uint256).max);\n    }\n\n    receive() external payable {}\n\n    function wrap() public payable{\n        require(token.transferFrom(address(this),msg.sender, msg.value),\"not enough tokens\");\n    }\n\n   function unwrap(uint256 _amount) public {\n    // Transfer tokens from the sender to the contract\n        require(token.transferFrom(msg.sender, address(this), _amount), \"Token transfer failed\");\n\n        // Get the contract's balance before the transfer\n        uint256 contractBalanceBefore = address(this).balance;\n        require(_amount<contractBalanceBefore,\"not enough liquidity\");\n\n        // Transfer equivalent ether amount from contract to the sender\n        require(payable(msg.sender).send(_amount), \"Ether transfer failed\");\n    }\n\n\n    function unlimitedAllowance()public{\n        token.approve(address(this),type(uint256).max);\n    }\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
