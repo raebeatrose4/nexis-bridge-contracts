@@ -2,5 +2,7 @@
     "fantom-testnet",
     "nexis-testnet",
     "bnb-testnet",
-    "eth-sepolia"
+    "eth-sepolia",
+    "mumbai-testnet",
+    "avalanche-fuji"
 ]

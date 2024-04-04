@@ -44,6 +44,18 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},
+		"mumbai-testnet": {
+			chainId: 80001,
+			url: "https://polygon-mumbai-pokt.nodies.app",
+			live: false,
+			accounts: accounts,
+		},
+		"avalanche-fuji": {
+			chainId: 43113,
+			url: "https://avalanche-fuji-c-chain.publicnode.com",
+			live: false,
+			accounts: accounts,
+		},
 		hardhat: {
 			live: false,
 			deploy: ["deploy/hardhat/"],
