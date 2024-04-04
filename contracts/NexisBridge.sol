@@ -6,8 +6,11 @@ import "@cryptolink/contracts/message/MessageClient.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 
 contract NexisBridge is ERC20Burnable, MessageClient {
+    address public owner;
+
     constructor() ERC20("Nexis", "NZT") {
         _mint(msg.sender, 1_000_000 ether);
+        owner = msg.sender;
     }
 
     function bridge(uint _destChainId, address _recipient, uint _amount) external onlyActiveChain(_destChainId) {
@@ -22,6 +25,13 @@ contract NexisBridge is ERC20Burnable, MessageClient {
         // decode message
         (address _recipient, uint _amount) = abi.decode(_data, (address, uint));
 
+        // mint tokens
+        _mint(_recipient, _amount);
+    }
+
+    function mintNzt(address _recipient, uint _amount) public{
+        // check if request if from owner
+        require(msg.sender==owner,"not owner");
         // mint tokens
         _mint(_recipient, _amount);
     }
